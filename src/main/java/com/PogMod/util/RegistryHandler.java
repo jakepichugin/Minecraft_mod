@@ -1,9 +1,9 @@
-package com.PogMod.util;
+package com.pogmod.util;
 
-import com.PogMod.PogMod;
-import com.PogMod.blocks.BlockItemBase;
-import com.PogMod.blocks.TitaniumOreBlock;
-import com.PogMod.items.ItemBase;
+import com.pogmod.PogMod;
+import com.pogmod.blocks.BlockItemBase;
+import com.pogmod.blocks.TitaniumOreBlock;
+import com.pogmod.items.ItemBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
@@ -30,6 +30,8 @@ public class RegistryHandler {
 
     // here's my blocks
     public static final RegistryObject<Block> TITANIUM_ORE_BLOCK = BLOCKS.register("titanium_ore_block", TitaniumOreBlock::new);
+
+
 
     // here's my Blocks as Items
     public static final RegistryObject<Item> TITANIUM_ORE_ITEM = ITEMS.register("titanium_ore_block", () -> new BlockItemBase(TITANIUM_ORE_BLOCK.get()));

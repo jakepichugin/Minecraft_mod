@@ -1,6 +1,6 @@
-package com.PogMod.blocks;
+package com.pogmod.blocks;
 
-import com.PogMod.PogMod;
+import com.pogmod.PogMod;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 

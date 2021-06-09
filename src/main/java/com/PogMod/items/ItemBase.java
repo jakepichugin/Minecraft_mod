@@ -1,6 +1,6 @@
-package com.PogMod.items;
+package com.pogmod.items;
 
-import com.PogMod.PogMod;
+import com.pogmod.PogMod;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 

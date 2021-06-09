@@ -1,4 +1,4 @@
-package com.PogMod.blocks;
+package com.pogmod.blocks;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.SoundType;
