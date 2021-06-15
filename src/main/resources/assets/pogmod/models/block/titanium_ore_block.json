@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "pogmod:blocks/bouncyblock"
+    "all": "pogmod:blocks/titaniumblock"
   }
 }
 
