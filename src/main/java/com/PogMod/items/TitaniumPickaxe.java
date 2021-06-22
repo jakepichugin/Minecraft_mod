@@ -7,6 +7,6 @@ import net.minecraft.item.PickaxeItem;
 
 public class TitaniumPickaxe extends PickaxeItem {
     public TitaniumPickaxe() {
-        super(ItemTier.IRON,5, 10.0F, new Item.Properties().tab(PogMod.MYMOD_GROUP));
+        super(ModTier.TITANIUM,2, 1.0F, new Item.Properties().tab(PogMod.MYMOD_GROUP));
     }
 }
