@@ -7,23 +7,22 @@ import net.minecraft.command.arguments.EntityArgument;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.text.TranslationTextComponent;
 
-public class HelloCommand {
+public class NameChangeCommand {
 
     public static void register(CommandDispatcher<CommandSource> dispatcher) {
         dispatcher.register(Commands.literal("hello").executes(source -> {
-            return hello(source.getSource(), source.getSource().getPlayerOrException());
+            return namechange(source.getSource(), source.getSource().getPlayerOrException());
 
         }).then(Commands.argument("target", EntityArgument.player()).executes(source -> {
-            return hello(source.getSource(), EntityArgument.getPlayer(source,"target"));
+            return namechange(source.getSource(), EntityArgument.getPlayer(source,"target"));
         })));
 
     }
 
-    private static int hello(CommandSource source, PlayerEntity player) {
-        source.sendSuccess(new TranslationTextComponent("Hello I am cool, get netherite armor or you will make a dirt hut HAAHAHAHA", player.getDisplayName()), true);
+    private static int namechange(CommandSource source, PlayerEntity player) {
+        source.sendSuccess(new TranslationTextComponent("", player.getDisplayName()), true);
         return 1;
+
     }
-
-
 
 }

@@ -7,5 +7,9 @@
   "block.pogmod.titanium_ore_block": "Titanium Ore",
   "item.pogmod.titanium_ore": "Titanium",
   "item.pogmod.titanium_ingot": "Titanium Ingot",
+  "item.pogmod.titanium_helmet": "Titanium Helmet",
+  "item.pogmod.titanium_chestplate": "Titanium Chestplate",
+  "item.pogmod.titanium_leggings": "Titanium Leggings",
+  "item.pogmod.titanium_boots": "Titanium Boots",
   "itemGroup.pogtab": "Pog Tab"
 }
