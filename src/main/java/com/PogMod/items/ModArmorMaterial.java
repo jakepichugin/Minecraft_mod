@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
 
-    TITANIUM("pogmod:titanium", 7, new int[]{1, 3, 5, 2}, 25, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F, () -> {
+    TITANIUM("pogmod:titanium", 20, new int[]{5, 4, 7, 4}, 18, SoundEvents.ARMOR_EQUIP_GOLD, 1.0F, -10.0F, () -> {
         return Ingredient.of(Items.STRING);
     });
 

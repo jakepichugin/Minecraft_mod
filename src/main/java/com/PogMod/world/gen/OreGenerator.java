@@ -21,7 +21,7 @@ public class OreGenerator {
                     RegistryHandler.TITANIUM_ORE_BLOCK.get().getBlock().defaultBlockState(),
                     5,
                     3,
-                    45,
+                    55,
                     3);
 
         }
