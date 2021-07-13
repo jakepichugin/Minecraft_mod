@@ -10,6 +10,7 @@ import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.network.IPacket;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
@@ -30,29 +31,15 @@ public class BombEntity extends ProjectileItemEntity {
 
     protected void onHit(RayTraceResult p_70227_1_) {
         super.onHit(p_70227_1_);
+        float r = 6.0f;
         if (!this.level.isClientSide) {
-            if (this.random.nextInt(8) == 0) {
-                int i = 1;
-                if (this.random.nextInt(32) == 0) {
-                    i = 4;
-                }
-
-                for(int j = 0; j < i; ++j) {
-                    ChickenEntity chickenentity = EntityType.CHICKEN.create(this.level);
-                    chickenentity.setAge(-24000);
-                    chickenentity.moveTo(this.getX(), this.getY(), this.getZ(), this.yRot, 0.0F);
-                    this.level.addFreshEntity(chickenentity);
-                }
-            }
-
-            this.level.broadcastEntityEvent(this, (byte)3);
+            this.level.explode(this, this.getX(), this.getY(), this.getZ(), r, Explosion.Mode.BREAK);
             this.remove();
         }
-        public IPacket<?> createSpawnPacket(){
-            return NetworkHooks.getEntitySpawningPacket(this);
-        }
-
     }
+        public IPacket<?> createSpawnPacket() { return NetworkHooks.getEntitySpawningPacket(this); }
+
+
 
     protected Item getDefaultItem() {
         return RegistryHandler.BOMB.get();

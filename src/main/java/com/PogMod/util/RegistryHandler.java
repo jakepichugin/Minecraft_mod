@@ -3,9 +3,12 @@ package com.pogmod.util;
 import com.pogmod.PogMod;
 import com.pogmod.blocks.BlockItemBase;
 import com.pogmod.blocks.TitaniumOreBlock;
+import com.pogmod.entity.BombEntity;
 import com.pogmod.items.*;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -57,6 +60,11 @@ public class RegistryHandler {
 
 
     // NOT FINISHED IDK IF IT WILL RUN BUT HERE GOES OUR ENTITIES!
+    //Entities
+    public static final RegistryObject<EntityType<BombEntity>> BOMB_ENTITY = ENTITIES.register("bomb",
+            () -> EntityType.Builder.<BombEntity>of(BombEntity::new, EntityClassification.MISC)
+                    .sized(0.5f, 0.5f)
+                    .build("bomb"));
 
 
 
