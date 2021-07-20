@@ -4,6 +4,7 @@ import com.pogmod.PogMod;
 import com.pogmod.blocks.BlockItemBase;
 import com.pogmod.blocks.TitaniumOreBlock;
 import com.pogmod.entity.BombEntity;
+import com.pogmod.entity.PenguinEntity;
 import com.pogmod.items.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityClassification;
@@ -65,6 +66,10 @@ public class RegistryHandler {
             () -> EntityType.Builder.<BombEntity>of(BombEntity::new, EntityClassification.MISC)
                     .sized(0.5f, 0.5f)
                     .build("bomb"));
+    public static final RegistryObject<EntityType<PenguinEntity>> PENGUIN_ENTITY = ENTITIES.register("penguin",
+            () -> EntityType.Builder.<PenguinEntity>of(PenguinEntity::new, EntityClassification.CREATURE)
+                    .sized(1F, 1F)
+                    .build("penguin"));
 
 
 
