@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    " # ",
+    "   "
+  ],
+  "pattern": [
+    "   ",
+    "X# ",
+    "   "
+  ],
+  "pattern": [
+    "   ",
+    " # ",
+    " X "
+  ],
+  "pattern": [
+    "   ",
+    " #X",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:tnt"
+    },
+    "X": {
+      "item": "minecraft:fire_charge"
+    }
+  },
+  "result": {
+    "item": "pogmod:bomb"
+  }
+}

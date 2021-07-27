@@ -31,7 +31,7 @@ public class BombEntity extends ProjectileItemEntity {
 
     protected void onHit(RayTraceResult p_70227_1_) {
         super.onHit(p_70227_1_);
-        float r = 6.0f;
+        float r = 4.5f;
         if (!this.level.isClientSide) {
             this.level.explode(this, this.getX(), this.getY(), this.getZ(), r, Explosion.Mode.BREAK);
             this.remove();
