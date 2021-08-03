@@ -17,15 +17,15 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public class BombEntity extends ProjectileItemEntity {
     public BombEntity(EntityType<? extends ProjectileItemEntity> type, World p_i50154_2_) {
-        super(RegistryHandler.BOMB_ENTITY.get(), p_i50154_2_);
+        super(type, p_i50154_2_);
     }
 
     public BombEntity(World p_i1780_1_, LivingEntity p_i1780_2_) {
         super(RegistryHandler.BOMB_ENTITY.get(), p_i1780_2_, p_i1780_1_);
     }
 
-    public BombEntity(World p_i1781_1_) {
-        super(RegistryHandler.BOMB_ENTITY.get(), p_i1781_1_);
+    public BombEntity(World p_i1781_1_, double p_i1781_2_, double p_i1781_4_, double p_i1781_6_) {
+        super(RegistryHandler.BOMB_ENTITY.get(), p_i1781_2_, p_i1781_4_, p_i1781_6_, p_i1781_1_);
     }
 
 

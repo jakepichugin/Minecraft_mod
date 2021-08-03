@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.TurtleEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.network.IPacket;
@@ -26,7 +27,7 @@ import javax.annotation.Nullable;
 
 public class PenguinEntity extends AnimalEntity {
 
-    public static final Ingredient TEMP_INGREDIENT = Ingredient.of(Items.COD, Items.SALMON, Items.COD_BUCKET, Items.SALMON_BUCKET, Items.COOKED_COD, Items.COOKED_SALMON);
+    public static final Ingredient FOOD_ITEMS = Ingredient.of(Items.COD, Items.SALMON, Items.COD_BUCKET, Items.SALMON_BUCKET, Items.COOKED_COD, Items.COOKED_SALMON);
     public PenguinEntity(final World worldIn) { super(RegistryHandler.PENGUIN_ENTITY.get(), worldIn); }
 
     public PenguinEntity(final EntityType<? extends AnimalEntity> type, final World worldIn) { super(type, worldIn); }
@@ -37,7 +38,7 @@ public class PenguinEntity extends AnimalEntity {
         this.goalSelector.addGoal(0, new SwimGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.2D, TEMP_INGREDIENT, false));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.2D, FOOD_ITEMS, false));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
         this.goalSelector.addGoal(5, new LookAtGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
@@ -49,6 +50,11 @@ public class PenguinEntity extends AnimalEntity {
                 .add(Attributes.MOVEMENT_SPEED, 0.20D)
                 .add(Attributes.FOLLOW_RANGE, 10.0D)
                 .build();
+    }
+
+    public boolean isFood(ItemStack p_70877_1_) {
+
+        return FOOD_ITEMS.test(p_70877_1_);
     }
 
 
@@ -64,8 +70,9 @@ public class PenguinEntity extends AnimalEntity {
 
     @Nullable
     @Override
-    public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
-        return null;
+    public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_)
+    {
+        return RegistryHandler.PENGUIN_ENTITY.get().create(this.level);
     }
 
     static class GoToWaterGoal extends MoveToBlockGoal {

@@ -46,14 +46,14 @@ public class PenguinModel<T extends PenguinEntity> extends EntityModel<T> {
 		beak.texOffs(32, 8).addBox(-1.0F, -13.0F, -5.0F, 2.0F, 1.0F, 1.0F, 0.0F, false);
 
 		leftarm = new ModelRenderer(this);
-		leftarm.setPos(0.0F, 0.0F, 0.0F);
+		leftarm.setPos(0.0F, -10.0F, 0.0F);
 		main.addChild(leftarm);
-		leftarm.texOffs(24, 16).addBox(4.0F, -10.0F, -2.0F, 1.0F, 8.0F, 3.0F, 0.0F, false);
+		leftarm.texOffs(24, 16).addBox(4.0F, 0.0F, -2.0F, 1.0F, 8.0F, 3.0F, 0.0F, false);
 
 		rightarm = new ModelRenderer(this);
-		rightarm.setPos(0.0F, 0.0F, 0.0F);
+		rightarm.setPos(0.0F, -10.0F, 0.0F);
 		main.addChild(rightarm);
-		rightarm.texOffs(24, 16).addBox(-5.0F, -10.0F, -2.0F, 1.0F, 8.0F, 3.0F, 0.0F, false);
+		rightarm.texOffs(24, 16).addBox(-5.0F, 0.0F, -2.0F, 1.0F, 8.0F, 3.0F, 0.0F, false);
 
 		leftleg = new ModelRenderer(this);
 		leftleg.setPos(0.0F, 0.0F, 0.0F);
