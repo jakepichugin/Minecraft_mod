@@ -4,6 +4,7 @@ import com.pogmod.PogMod;
 import com.pogmod.blocks.BlockItemBase;
 import com.pogmod.blocks.TitaniumOreBlock;
 import com.pogmod.entity.BombEntity;
+import com.pogmod.entity.PenguinEggEntity;
 import com.pogmod.entity.PenguinEntity;
 import com.pogmod.items.*;
 import net.minecraft.block.Block;
@@ -40,6 +41,10 @@ public class RegistryHandler {
     public static final RegistryObject<Item> BOMB = ITEMS.register("bomb", Bomb::new);
 
 
+    public static final RegistryObject<Item> PENGUIN_EGG = ITEMS.register("penguin_egg", PenguinEgg::new);
+
+
+
     // here's my armor
     public static final RegistryObject<Item> TITANIUM_HELMET = ITEMS.register("titanium_helmet", TitaniumHelmet::new);
     public static final RegistryObject<Item> TITANIUM_CHESTPLATE = ITEMS.register("titanium_chestplate", TitaniumChestplate::new);
@@ -64,8 +69,15 @@ public class RegistryHandler {
     //Entities
     public static final RegistryObject<EntityType<BombEntity>> BOMB_ENTITY = ENTITIES.register("bomb",
             () -> EntityType.Builder.<BombEntity>of(BombEntity::new, EntityClassification.MISC)
-                    .sized(0.5f, 0.5f)
+                    .sized(0.5F, 0.5F)
                     .build("bomb"));
+
+    public static final RegistryObject<EntityType<PenguinEggEntity>> PENGUIN_EGG_ENTITY = ENTITIES.register("penguin_egg",
+            () -> EntityType.Builder.<PenguinEggEntity>of(PenguinEggEntity::new, EntityClassification.MISC)
+                    .sized(0.5F, 0.5F)
+                    .build("penguin_egg"));
+
+
     public static final RegistryObject<EntityType<PenguinEntity>> PENGUIN_ENTITY = ENTITIES.register("penguin",
             () -> EntityType.Builder.<PenguinEntity>of(PenguinEntity::new, EntityClassification.CREATURE)
                     .sized(1F, 1F)

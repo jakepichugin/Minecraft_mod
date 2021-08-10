@@ -37,10 +37,12 @@ public class BombEntity extends ProjectileItemEntity {
             this.remove();
         }
     }
-        public IPacket<?> createSpawnPacket() { return NetworkHooks.getEntitySpawningPacket(this); }
+
+    @Override
+    public IPacket<?> getAddEntityPacket() { return NetworkHooks.getEntitySpawningPacket(this); }
 
 
-
+    @Override
     protected Item getDefaultItem() {
         return RegistryHandler.BOMB.get();
     }

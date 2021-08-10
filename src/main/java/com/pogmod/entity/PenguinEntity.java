@@ -63,12 +63,12 @@ public class PenguinEntity extends AnimalEntity {
 
     }
 
-
-    public IPacket<?> createSpawnPacket() {
+    @Override
+    public IPacket<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 
-    @Nullable
+
     @Override
     public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_)
     {

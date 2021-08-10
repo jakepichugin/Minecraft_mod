@@ -70,6 +70,9 @@ public class PogMod
         RenderingRegistry.registerEntityRenderingHandler(RegistryHandler.BOMB_ENTITY.get(),
                 renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer()));
 
+        RenderingRegistry.registerEntityRenderingHandler(RegistryHandler.PENGUIN_EGG_ENTITY.get(),
+                renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer()));
+
         RenderingRegistry.registerEntityRenderingHandler(RegistryHandler.PENGUIN_ENTITY.get(), PenguinRenderer::new);
 
         LOGGER.debug("Registered entity Renderers");
