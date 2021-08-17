@@ -2,6 +2,7 @@ package com.pogmod.util;
 
 import com.pogmod.PogMod;
 import com.pogmod.blocks.BlockItemBase;
+import com.pogmod.blocks.BouncyBlock;
 import com.pogmod.blocks.TitaniumOreBlock;
 import com.pogmod.entity.BombEntity;
 import com.pogmod.entity.PenguinEggEntity;
@@ -56,11 +57,14 @@ public class RegistryHandler {
 
     // here's my blocks
     public static final RegistryObject<Block> TITANIUM_ORE_BLOCK = BLOCKS.register("titanium_ore_block", TitaniumOreBlock::new);
+    public static final RegistryObject<Block> BOUNCY_BLOCK = BLOCKS.register("bouncy_block", BouncyBlock::new);
+
 
 
 
     // here's my Blocks as Items
     public static final RegistryObject<Item> TITANIUM_ORE_ITEM = ITEMS.register("titanium_ore_block", () -> new BlockItemBase(TITANIUM_ORE_BLOCK.get()));
+    public static final RegistryObject<Item> BOUNCY_BLOCK_ITEM = ITEMS.register("bouncy_block", () -> new BlockItemBase(BOUNCY_BLOCK.get()));
 
 
 
