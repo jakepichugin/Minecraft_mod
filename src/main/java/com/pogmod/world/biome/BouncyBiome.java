@@ -1,24 +1,48 @@
 package com.pogmod.world.biome;
 
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MoodSoundAmbience;
+import com.pogmod.util.RegistryHandler;
+import net.minecraft.block.Blocks;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 
-public class BouncyBiome extends Biome {
-    protected BouncyBiome(){
-        super(new Biome.Builder()
-                .precipitation(RainType.NONE)
+public class BouncyBiome  {
+
+    public static Biome makeBouncyBiome(){
+
+        final MobSpawnInfo.Builder mobSpawnIB = new MobSpawnInfo.Builder();
+        DefaultBiomeFeatures.commonSpawns(mobSpawnIB);
+
+        final BiomeGenerationSettings.Builder biomeGenBuilder = new BiomeGenerationSettings.Builder().surfaceBuilder(
+                SurfaceBuilder.DEFAULT.configured(new SurfaceBuilderConfig(
+                        RegistryHandler.BOUNCY_BLOCK.get().defaultBlockState(),
+                        Blocks.DIRT.defaultBlockState(),
+                        Blocks.SLIME_BLOCK.defaultBlockState()))
+        );
+
+        DefaultBiomeFeatures.addDefaultOres(biomeGenBuilder);
+        DefaultBiomeFeatures.addFossilDecoration(biomeGenBuilder);
+
+        return new Biome.Builder()
+                .precipitation(Biome.RainType.NONE)
                 .temperature(0.9F)
-                .temperatureAdjustment(TemperatureModifier.NONE)
                 .downfall(0)
-                .biomeCategory(Category.NONE)
-                .depth(0.7F)
-                .scale(1.7F)
-                .specialEffects(new BiomeAmbience.Builder().ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build())
-                .generationSettings(BiomeGenerationSettings.Builder())
-                .mobSpawnSettings());
+                .biomeCategory(Biome.Category.PLAINS)
+                .depth(0.4F)
+                .scale(0.5F)
+                .specialEffects(
+                        new BiomeAmbience.Builder()
+                                .waterColor(0xc90579)
+                                .waterFogColor(0xc90579)
+                                .fogColor(0xc90579)
+                                .skyColor(0xc90579)
+                                .ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS)
+                                .build())
+                .generationSettings(biomeGenBuilder.build())
+                .mobSpawnSettings(mobSpawnIB.build())
+                .build();
     }
 
 }

@@ -8,26 +8,37 @@ import com.pogmod.entity.BombEntity;
 import com.pogmod.entity.PenguinEggEntity;
 import com.pogmod.entity.PenguinEntity;
 import com.pogmod.items.*;
+import com.pogmod.world.biome.BouncyBiome;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.item.Item;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
+
+import java.util.Objects;
 
 public class RegistryHandler {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PogMod.MOD_ID);
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, PogMod.MOD_ID);
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, PogMod.MOD_ID);
+    public static final DeferredRegister<Biome> BIOMES  = DeferredRegister.create(ForgeRegistries.BIOMES, PogMod.MOD_ID);
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
     // here's my items
     public static final RegistryObject<Item> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe", TitaniumPickaxe::new);
@@ -86,6 +97,10 @@ public class RegistryHandler {
             () -> EntityType.Builder.<PenguinEntity>of(PenguinEntity::new, EntityClassification.CREATURE)
                     .sized(1F, 1F)
                     .build("penguin"));
+
+    // Biomes
+
+    public static final RegistryObject<Biome> BOUNCY_BIOME = BIOMES.register("bouncy_biome", BouncyBiome::makeBouncyBiome);
 
 
 
